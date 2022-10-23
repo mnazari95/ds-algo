@@ -34,7 +34,10 @@ class Heap {
     }
 
     insert(value) {
-
+        //add bottom of list
+        this.data.push(value)
+        //heapify newly inserted value within the list
+        
     }
 
     delete(value) {
