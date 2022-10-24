@@ -34,10 +34,16 @@ class Heap {
     }
 
     insert(value) {
-        //add bottom of list
-        this.data.push(value)
-        //heapify newly inserted value within the list
-        
+        if (this.size === 0) {
+            this.data.push(value)
+        }else{
+            //add bottom of list
+            this.data.push(value)
+            //heapify newly inserted value within the list
+            for (let i = parseInt(this.data.length / 2 - 1); i >= 0; i--) {
+                this.maxHeapify(this.data, this.data.length, i);
+            }
+        }
     }
 
     delete(value) {
