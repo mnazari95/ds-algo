@@ -1,3 +1,5 @@
+//import {Heap} from './Heap.js';
+
 function hello() {
   //alert("hello world")
   console.log("testing sampleFunc")
@@ -13,6 +15,20 @@ function hello() {
   console.log("after sort")
   console.log("after sort first 10 values")
   printFirstTenValues(data)
+  //try heap
+  let data2 = generateData()
+  printFirstTenValues(data2)
+  console.log("after sort")
+  const heap = new Heap()
+  for (var i = 0; i < data2.length; i++) {
+    heap.insert(data2[i])
+  }
+  console.log("heap size " + heap.heapSize())
+  for(var j = 0; j < 500; j++) {
+    console.log("pop heap " + heap.pop())
+  }
+  console.log("heap after size " + heap.heapSize())
+  
 }
 
 function sampleFunc(number1, number2) {
