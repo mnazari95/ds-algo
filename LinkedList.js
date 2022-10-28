@@ -24,6 +24,10 @@ class LinkedList {
         current.next = new Node(data);
     }
 
+    isEmpty() {
+        return this.head == null;
+    }
+
     prepend(data) {
         let newHead = new Node(data)
         newHead.next = this.head;
@@ -46,5 +50,18 @@ class LinkedList {
             }
             current = current.next;
         }
+    }
+
+    //removes first node in list and returns the node
+    remove() {
+        if (this.isEmpty()) {
+            return Error("there is nothing to remove")
+        }
+
+        let firstNode = this.head.next
+        let secondNode = this.head.next.next
+        this.head = secondNode
+        firstNode.next = null
+        return firstNode
     }
 }
