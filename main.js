@@ -31,6 +31,20 @@ function hello() {
   
 }
 
+function testLinkedList() {
+  let data = generateData();
+  let mLinkedList = new LinkedList();
+  mLinkedList.append('a')
+  mLinkedList.append('bb')
+  mLinkedList.append('ccc')
+  mLinkedList.append('dddd')
+
+  console.log("removing first " + mLinkedList.remove().data)
+  console.log("removing second " + mLinkedList.remove().data)
+  console.log("removing 3rd " + mLinkedList.remove().data)
+  console.log("removing 4th " + mLinkedList.remove().data)
+}
+
 function sampleFunc(number1, number2) {
   return number1 * number2
 }
