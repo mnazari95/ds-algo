@@ -1,5 +1,5 @@
 class Node {
-    Node(data) {
+    constructor(data) {
         this.data = data
         this.next = null;
     }
@@ -13,7 +13,7 @@ class LinkedList {
     append(data) {
 
         if (this.head == null) {
-            head = new Node(data)
+            this.head = new Node(data)
             return;
         }
 
@@ -58,8 +58,8 @@ class LinkedList {
             return Error("there is nothing to remove")
         }
 
-        let firstNode = this.head.next
-        let secondNode = this.head.next.next
+        let firstNode = this.head
+        let secondNode = this.head.next
         this.head = secondNode
         firstNode.next = null
         return firstNode
