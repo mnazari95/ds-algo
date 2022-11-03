@@ -1,5 +1,67 @@
 //import {Heap} from './Heap.js';
+/**
+ * @param {string} s
+ * @return {number}
+ */
+ var romanToInt = function(s) {
+  var numberValue = 0;
+  var arr = Array.from(s)
 
+  //iterate over arr of strings
+  for(var i = 0; i < arr.length; i++) {
+      var j = i + 1
+      console.log(i+ " " + j)
+      //special conditions
+      if (arr[i] === "I" && arr[j] === "V") {
+          numberValue += 4
+          i++
+      }else if (arr[i] === "I" && arr[j] === "X") {
+          numberValue += 9
+          i++
+      } else if (arr[i] === "X" && arr[j] === "L") {
+          numberValue += 40
+          i++
+      } else if (arr[i] === "X" && arr[j] === "C") {
+          numberValue += 90
+          i++
+      } else if (arr[i] === "C" && arr[j] === "D") {
+          numberValue += 400
+          i++
+      } else if (arr[i] === "C" && arr[j] === "M") {
+          numberValue += 900
+          i++
+      } else {
+
+        switch (arr[i]) {
+          case "I":
+              numberValue += 1
+          break;
+          case "V":
+              numberValue += 5
+          break;
+          case "X":
+              numberValue += 10
+          break;
+          case "L":
+              numberValue += 50
+          break;
+          case "C":
+              numberValue += 100
+          break;
+          case "D":
+              numberValue += 500
+          break;
+          case "M":
+              numberValue += 1000
+          break;
+      }
+      }
+
+      
+  }
+
+  return numberValue
+};
 function hello() {
   //alert("hello world")
   console.log("testing sampleFunc")
@@ -29,6 +91,8 @@ function hello() {
   }
   console.log("heap after size " + heap.heapSize())
   
+  var num = romanToInt("MCMXCIV")
+  console.log(num)
 }
 
 function sampleFunc(number1, number2) {
