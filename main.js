@@ -117,8 +117,8 @@ function mergeTwoLists(l1, l2) {
 
   return mergedHead.next;
 =======
-  var num = romanToInt("MCMXCIV")
-  console.log(num)
+  // var num = romanToInt("MCMXCIV")
+  // console.log(num)
 >>>>>>> e5eb1d43d03f47de36ace4ae6d760894c5a7dd06
 }
 
