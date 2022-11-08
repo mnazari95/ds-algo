@@ -74,7 +74,7 @@ function hello() {
   // console.log("before sort first 10 values")
   // printFirstTenValues(data)
   // bubble(data)
-  // console.log("after sort")
+  // console.log("after sort"
   // console.log("after sort first 10 values")
   // printFirstTenValues(data)
   // //try heap
@@ -91,7 +91,6 @@ function hello() {
   // }
   // console.log("heap after size " + heap.heapSize())
   
-<<<<<<< HEAD
   mergeTwoLists()
 }
 
@@ -116,10 +115,6 @@ function mergeTwoLists(l1, l2) {
   crt.next = l1 || l2;
 
   return mergedHead.next;
-=======
-  // var num = romanToInt("MCMXCIV")
-  // console.log(num)
->>>>>>> e5eb1d43d03f47de36ace4ae6d760894c5a7dd06
 }
 
 
