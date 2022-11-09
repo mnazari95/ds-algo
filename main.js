@@ -92,7 +92,38 @@ function hello() {
   // console.log("heap after size " + heap.heapSize())
   
   mergeTwoLists()
+  const triangle = generatePascalTriangle(8);
+  console.log(triangle);
 }
+
+/**
+ * @param {number} numRows
+ * @return {number[][]}
+ */
+ var generatePascalTriangle = function(numRows) {
+  let result = [];
+  for(let i = 0; i < numRows; i++) {
+      let rowArr = [];
+      for(let j = 0; j <= i; j++) {
+          let row = i;
+          let col = j;
+          
+          if (col == 0) {
+              rowArr.push(1);
+          }else if (col == i) {
+              rowArr.push(1);
+          } else {
+              //get previous values
+              let previousRow = result[row - 1];
+              let sum = previousRow[col - 1] + previousRow[col];
+              rowArr.push(sum);
+          }
+          
+      }
+      result.push(rowArr);
+  }
+  return result;
+};
 
 function ListNode(val, next) {
   this.val = (val === undefined ? 0 : val)
