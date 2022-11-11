@@ -91,10 +91,44 @@ function hello() {
   // }
   // console.log("heap after size " + heap.heapSize())
   
-  mergeTwoLists()
-  const triangle = generatePascalTriangle(8);
-  console.log(triangle);
+  // mergeTwoLists()
+  // const triangle = generatePascalTriangle(8);
+  // console.log(triangle);
+  //console.log(isValid("(]"));
+  console.log(isValid("([}}])"));
 }
+
+var isValid = function(s) {
+  let arrType = s.split("");
+  let stack = [];
+  let index = 0;
+
+  while(index < arrType.length) {
+    console.log("at index " + arrType[index]);
+    if (arrType[index] === "(") {
+      stack.push("(")
+    }else if(arrType[index] === "{") {
+      stack.push("{")
+    }else if(arrType[index] === "[") {
+      stack.push("[")
+    }else if((arrType[index] === ")") && (stack[stack.length - 1] === "(")) {
+      stack.pop();
+      console.log("closing )")
+    } else if((arrType[index] === "}") && (stack[stack.length -1] === "{")) {
+      stack.pop();
+      console.log("closing }")
+    } else if((arrType[index] === "]") && (stack[stack.length -1] === "[")) {
+      stack.pop();
+      console.log("closing ]")
+    }else {
+      return false;
+    }
+    console.log(stack)
+    index++;
+  }
+
+  return stack.length === 0;
+};
 
 /**
  * @param {number} numRows
