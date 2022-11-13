@@ -95,8 +95,67 @@ function hello() {
   // const triangle = generatePascalTriangle(8);
   // console.log(triangle);
   //console.log(isValid("(]"));
-  console.log(isValid("([}}])"));
+  //console.log(isValid("([}}])"));
+  console.log(canConstruct("a", "b"));
 }
+
+var canConstruct = function(ransomNote, magazine) {
+  let charBank = new Map();
+
+  let magArr = magazine.split("")
+  //fill character bank with all letters in magazine
+  for(i in magArr) {
+      //add if there is no previous key for this char
+      if(charBank.has(i)) {
+          let val = charBank.get(i);
+          val++;
+          charBank.set(i, val);
+      }else{
+          charBank.set(i, 1);
+      }
+  }
+  console.log(magArr)
+  let ransArr = ransomNote.split("")
+  //now we should have map with number of characters used in magazine
+  for (c in ransArr) {
+      if (charBank.has(c)) {
+          //remove one or delete if there is one occurance of letter
+          let value = charBank.get(c);
+          if(value > 1) {
+              //remove 1
+              value--;
+              charBank.set(c,value);
+          } else {
+              //remove from bank
+              charBank.delete(c);
+          }
+      } else {
+          return false;
+      }
+  }
+  return true;
+};
+
+var reverseList = function(head) {
+  //with help of two nodes we can essentially swap ref pointers between nodes one at a time
+
+  let prev = null;
+  let next = null;
+
+  while(head != null) {
+    //set a pointer reference to i+1 element of list
+    next = head.next;
+    //remove reference pointer from i -> i+1
+    head.next = prev;
+    //set a reference pointer to i element
+    prev = head;
+    //change pointer of head to i+1 element
+    head = next;
+  }
+
+  head = prev;
+  return head;
+};
 
 var isValid = function(s) {
   let arrType = s.split("");
