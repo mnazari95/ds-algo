@@ -96,15 +96,42 @@ function hello() {
   // console.log(triangle);
   //console.log(isValid("(]"));
   //console.log(isValid("([}}])"));
-  console.log(canConstruct("a", "b"));
+  console.log(canConstruct("a", "b"))
 }
+
+var firstUniqChar = function(s) {
+    
+  let map = new Map();
+
+  let arr = s.split("");
+
+  for(c in arr) {
+      if (map.has(arr[c])) {
+          let value = map.get(arr[c]);
+          value++;
+          map.set(arr[c], value)
+      } else {
+          map.set(arr[c], 1);
+      }
+  }
+  console.log(map);
+
+  for(let i = 0; i < arr.length; i++) {
+      if (map.has(arr[i]) && map.get(arr[i]) === 1) {
+          return i;
+      }
+  }
+  return -1;
+
+};
 
 var canConstruct = function(ransomNote, magazine) {
   let charBank = new Map();
 
   let magArr = magazine.split("")
   //fill character bank with all letters in magazine
-  for(i in magArr) {
+  for(i in magazine) {
+    console.log(i)
       //add if there is no previous key for this char
       if(charBank.has(i)) {
           let val = charBank.get(i);
